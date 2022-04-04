@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('Header')
+    @extends('layouts.Header')
+    @section('header')
+    @endsection
 
 <body class="bg-pink-light">
 
@@ -159,8 +161,9 @@
         </section>
 
     </div>
-
-@include('Footer')
+    @extends('layouts.Footer')
+    @section('footer')
+    @endsection
 </body>
 
 </html>
