@@ -53,47 +53,29 @@ class DashboardController extends Controller
         ]);
 
 
-        // $request->validate([
-        // 	'job_title' => 'required|string|min:3|max:255',
-        // 	'company_name' => 'required|string|min:3|max:255',
-        // 	'job_details' => 'required|string|email|max:255',
-        // 	'job_numbers' => 'integer|size:10',
-        // 	'image' => 'required|mimes:jpg,png,jpeg,gif,svg|max:5048'
-        // ]);
-        // $newimagename=time().'-'.$request->job_title.'.'.$request->image->extenstion();
-        // $request->image->move(public_path('images'),$newimagename);
-
-        // $job = Insertajob::create([
-        //     'job_title' => $request->input('job_title'),
-        // 	'company_name' => $request->input('company_name'),
-        // 	'job_details' => $request->input('job_details'),
-        // 	'job_numbers' => $request->input('job_numbers'),
-        // 	'image' => $request->input('image')
-        // ]);
-
-        // return redirect('/postjob');
         $job=new jobs();
         $job->job_title=$request->job_title;
         $job->company_name=$request->company_name;
         $job->job_details=$request->job_details;
         $job->job_numbers=$request->job_numbers;
-        $job->image=$request->image;
 
-        // $u->password=Hash::make($request->user_pass);
-        // $u->email=$request->u_email;
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
+        $job->image = $imageName;
+  
+        
         if($job->save())
         return redirect()->route('postjob')
         ->with(['success'=>'user created successful']);
         return back()->with(['error'=>'can not create user']);
      
 
-        // $size = $request->file('image')->getSize();
-        // $name = $request->file('image')->getClientOriginalName();
-
-        // $request->file('image')->store('public/images/');
-        // $photo = new jobs();
-        // $photo->image = $name;
-        // $photo->save();
-        // return redirect()->back();
+     
+ 
+ 
+        
+ 
+ 
+   
     }
 }
