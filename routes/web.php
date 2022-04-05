@@ -42,6 +42,6 @@ Route::get('/skills',[jobView::class ,'skills']);
 
 //admin dashboard
 Route::get('/postjob',[DashboardController::class , 'dashboard'])->name('postjob');
-Route::post('/postjob',[DashboardController::class , 'store']);
+Route::post('/postjob',[DashboardController::class , 'storejob']);
 Route::get('/profileEditad',[DashboardController::class , 'adminEdit'])->name('profileEditad');
 

@@ -73,7 +73,7 @@
 
         <section class="w-75 me-auto">
             <form class=" signin  d-flex justify-content-end m-1 align-items-start">
-              
+
                 <div class="dropdown d-flex align-items-center m-lg-5">
                     <a href="" id="dropdownMenuLink" class="btn p-1">
                         <img src="{{ URL::asset('images/b.jpg') }}" class=" rounded-pill" width="40" height="40"
@@ -95,16 +95,25 @@
             <section class="">
 
 
-                <form action="/postjob" method="POST" class="bg-white rounded-4 p-5 mx-2"
+                <form action="{{ route('postjob') }}" method="POST" class="bg-white rounded-4 p-5 mx-2"
                     enctype="multipart/form-data">
-                  
+                   
                     @csrf
-
+                    @if ($errors->any())
+                    @foreach ($errors->all() as $err)
+                    <p class="alert alert-danger">{{ $err }}</p>
+                        
+                    @endforeach
+                        
+                    @endif
                     <h1 class="fw-bolder">Add Job</h1>
                     <span class="link-secondary">Welcome to JobHub!</span><br>
                     <div class="row">
                         <div class="input-group mb-3 mt-4 col-lg-12">
                             <label class="w-100 my-2" for="">Title</label>
+                            @error('job_title')
+                                <p class="alert alert-danger">{{ $message }}</p>
+                            @enderror
                             <input type="text" name="job_title" class="form-control rounded-pill p-3"
                                 placeholder="Job Title">
 
@@ -113,6 +122,9 @@
                     <div class="row">
                         <div class="input-group mb-3 mt-4 col-lg-12">
                             <label class="w-100 my-2" for="">Company Name</label>
+                            @error('company_name')
+                                <p class="alert alert-danger">{{ $message }}</p>
+                            @enderror
                             <input type="text" name="company_name" class="form-control rounded-pill p-3"
                                 placeholder="Job Title">
 
@@ -121,6 +133,9 @@
                     <div class="row">
                         <div class="input-group mb-3 mt-4 col-lg-12">
                             <label class="w-100 my-2" for="">Job Details</label>
+                            @error('job_details')
+                                <p class="alert alert-danger">{{ $message }}</p>
+                            @enderror
                             <textarea name="job_details" class="form-control rounded-pill p-3" placeholder="Details">
                         </textarea>
 
@@ -128,7 +143,11 @@
                     </div>
                     <div class="row">
                         <div class="input-group mb-3 mt-4 col-lg-12">
+
                             <label class="w-100 my-2" for="">Number Of Jobs</label>
+                            @error('image')
+                                <p class="alert alert-danger">{{ $message }}</p>
+                            @enderror
                             <input type="number" name="job_numbers" class="form-control rounded-pill p-3">
 
                         </div>
@@ -137,6 +156,9 @@
 
                     <div class="input-group mb-3 mt-4">
                         <label class="w-100 my-2" for="">Image Of Job</label>
+                        @error('image')
+                            <p class="alert alert-danger">{{ $message }}</p>
+                        @enderror
                         <input type="file" name="image" class="form-control rounded-4 p-3 py-5 text-center"
                             placeholder="Upload Your Img" style="border:1px dotted #ced4da !important;height: 150px;">
 
