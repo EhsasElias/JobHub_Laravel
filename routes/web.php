@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\admin\Insertajob;
 use App\Http\Controllers\front\jobView;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
@@ -41,4 +42,6 @@ Route::get('/skills',[jobView::class ,'skills']);
 
 //admin dashboard
 Route::get('/postjob',[DashboardController::class , 'dashboard'])->name('postjob');
+Route::post('/postjob',[DashboardController::class , 'store']);
 Route::get('/profileEditad',[DashboardController::class , 'adminEdit'])->name('profileEditad');
+

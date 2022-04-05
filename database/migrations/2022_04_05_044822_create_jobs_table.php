@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        
-      
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('job-title');
-            $table->string('company-name');
-            $table->string('job-details');
-            $table->integer('job-numbers');
+            $table->string('job_title');
+            $table->string('company_name');
+            $table->string('job_details');
+            $table->integer('job_numbers');
             $table->string('image')->default('person.png');
          
             $table->rememberToken();
