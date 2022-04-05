@@ -93,7 +93,7 @@
                 </li>
             </form>
             <section class="">
-                <div class="bg-white rounded-4 p-5 mx-2">
+                <form action="/createjob" method="POST" class="bg-white rounded-4 p-5 mx-2">
                     <h1 class="fw-bolder">Add Job</h1>
                     <span class="link-secondary">Welcome to JobHub!</span><br>
                    <div class="row">
@@ -136,7 +136,7 @@
                     <div class="d-flex">
                         <button class="btn bg-darkBlue text-light rounded-4 border-0 p-3 px-5 m-auto Download" type="submit">Save</button>
                     </div>
-                </div>
+                </form>
                 
             </section>
 
