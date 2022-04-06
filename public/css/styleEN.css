@@ -4,7 +4,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins-Regular.ttf');
+  }
 .color-blue{
     color: #366bc3;
 }

@@ -118,7 +118,7 @@
 
               <div class="mx-auto">
                 <h4 class="fw-bolder">155</h4>
-                <p class="link-secondary">Unread messages/p>
+                <p class="link-secondary">Unread messages</p>
               </div>
             </button>
             <button type="button" class="btn  col-md-5  d-flex  rounded-4 align-items-center my-2"

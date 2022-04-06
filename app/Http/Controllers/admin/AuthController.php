@@ -12,80 +12,66 @@ class AuthController extends Controller
 {
     //
 
-    public function listAll(){
-        return view('admin.users.list_users');
+    public function adminEdit(){
+        return view('admin.profileEdit');
     }
-
-    public function showLogin(){
-        return view('admin.login');
-    }
-
-    public function login(Request $request){
-        Validator::validate($request->all(),[
-            'email_username'=>['email','required','min:3','max:10','unique:users'],
-            'user_pass'=>['required','min:5']
+  
 
 
-        ],[
-            'email_username.required'=>'this field is required',
-            'email_username.min'=>'can not be less than 3 letters', 
-            'email_username.unique'=>'there is an email in the table',
-        ]);
-
-        $u=new User();
-        $u->name=$request->input('email_username');
-        $u->save();
+    // public function login(Request $request){
+    //     Validator::validate($request->all(),[
+    //         'name'=>['required','min:3','max:10'],
+    //         'email'=>['email','required','min:3','max:10','unique:users'],
+    //         'password'=>['required','min:5']
 
 
+    //     ],[
+    //         'name.required'=>'this field is required',
+    //         'name.min'=>'can not be less than 3 letters',
+    //         'name.max'=>'can not be more than 10 letters',
+    //         'name.required'=>'this field is required',
+    //         'email.required'=>'this field is required',
+    //         'email.min'=>'can not be less than 3 letters', 
+    //         'email.max'=>'can not be more than 10 letters', 
+    //         'email.unique'=>'there is an email in the table',
+    //     ]);
 
-      /*  echo $request->input('email_username');
-        echo "<br>";
-        echo $request->has('user_pass');*/
+    //     $u=new User();
+    //     $u->name=$request->input('email');
+    //     $u->name=$request->input('password');
+    //     $u->save();
+    // }
 
-        /*print_r($request->input());
-        echo "<br>";
-        echo $request->has('user_pass');
-        echo"<br>";
-        if(!$request->filled('user_pass')) echo "empty data";
-        //$request->file('profile_image');
-      $request->hasFile('profile_image');
-        
-        //echo $request->email_username;
-        //print_r($request->input());
-        */
-
-    }
-
-    public function createUser(){
-        return view('admin.users.create');
+    public function saveuser(){
+       
     }
 
     public function register(Request $request){
 
         Validator::validate($request->all(),[
-            'full_name'=>['required','min:3','max:10'],
-            'u_email'=>['required','email','unique:users,email'],
-            'user_pass'=>['required','min:5'],
-            'confirm_pass'=>['same:user_pass']
+            'name'=>['required','min:3','max:10'],
+            'email'=>['email','required','min:3','max:10','unique:users'],
+            'password'=>['required','min:5']
 
 
         ],[
-            'full_name.required'=>'this field is required',
-            'full_name.min'=>'can not be less than 3 letters', 
-            'u_email.unique'=>'there is an email in the table',
-            'u_email.required'=>'this field is required',
-            'u_email.email'=>'incorrect email format',
-            'user_pass.required'=>'password is required',
-            'user_pass.min'=>'password should not be less than 3',
-            'confirm_pass.same'=>'password dont match',
-
+            'name.required'=>'this field is required',
+            'name.min'=>'can not be less than 3 letters',
+            'name.max'=>'can not be more than 10 letters',
+            'name.required'=>'this field is required',
+            'email.required'=>'this field is required',
+            'email.min'=>'can not be less than 3 letters', 
+            'email.max'=>'can not be more than 10 letters', 
+            'email.unique'=>'there is an email in the table',
+            'password.required'=>'this field is required',
+            'password.min'=>'can not be less than 3 letters', 
 
         ]);
 
         $u=new User();
-        $u->name=$request->full_name;
-        $u->password=Hash::make($request->user_pass);
-        $u->email=$request->u_email;
+        $u->name=$request->name;
+        $u->password=Hash::make($request->password);
+        $u->email=$request->email;
         if($u->save())
         return redirect()->route('home')
         ->with(['success'=>'user created successful']);
