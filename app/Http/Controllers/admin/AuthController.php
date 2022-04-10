@@ -24,10 +24,10 @@ class AuthController extends Controller
 
     public function showLogin()
     {
-        if (Auth::check())
-            return redirect()->route($this->checkRole());
-        else
-            return view('front.signIN');
+        // if(Auth::check())
+        // return redirect()->route($this->checkRole());
+        // else 
+        return view('front.UserprofileEdit');
     }
     public function login(Request $request)
     {
@@ -47,16 +47,16 @@ class AuthController extends Controller
 
         ]);
 
-        if (Auth::attempt(['name' => $request->name, 'password' => $request->password, 'is_active' => 1])) {
+     
 
+            // if(Auth::user()->hasRole('admin'))
+            return redirect()->route('login');
+            // else 
+            // return back()->with(['error'=>'can not create user']);
 
-            if (Auth::user()->hasRole('admin'))
-                return redirect()->route('save_user');
-            else
-                return redirect()->route('home');
-        } else {
-            return redirect()->route('login')->with(['message' => 'incorerct username or password or your account is not active ']);
-        }
+     
+        
+      
     }
    
 

@@ -69,4 +69,9 @@ Route::post('/save_user',[AuthController::class,'register'])->name('save_user');
          Route::get('/postjob',[JobController::class , 'dashboard'])->name('postjob');
         
 
-Route::get('/login',[AuthController::class , 'login'])->name('login');
+         Route::get('/login',[AuthController::class,'showLogin'])->name('login');
+
+         Route::post('/do_login',[AuthController::class,'login'])->name('do_login');
+
+         Route::get('/generate_roles',[SettingsController::class,'generateRoles'])->name('generate_roles');
+// Route::post('/login',[AuthController::class , 'login']);

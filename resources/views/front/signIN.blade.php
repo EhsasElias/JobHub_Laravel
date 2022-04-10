@@ -12,7 +12,7 @@
 
     <div tabindex="-1" class="my-5 py-5" >
         <div class="modal-dialog ">
-            <div class="modal-content  ">
+            <form method="POST" action="{{ route('do_login') }}" class="modal-content  ">
                 <div class="modal-header">
                     <h5 class="modal-title">Login in</h5>
                     <a href="/login" role="button" class="btn-close" ></a>
@@ -21,12 +21,12 @@
                     <div class="modal-body">
                         <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                            <input type="text" class="form-control" name="name" placeholder="Username" aria-label="Username"
                                 aria-describedby="basic-addon1">
                         </div>
                         <div class="input-group mb-3">
 
-                            <input type="text" class="form-control" placeholder="Password" aria-label="Password"
+                            <input type="text" class="form-control" name="password" placeholder="Password" aria-label="Password"
                                 aria-describedby="basic-addon1">
                         </div>
                         <a href="/signUP" >Create Acount</a>
@@ -37,10 +37,10 @@
                 <div class="modal-footer justify-content-between">
                     <a class="btn btn-primary" href="/">cancel</a>
 
-                    <a class="btn btn-primary" href="/login">Sign in</a>
+                    <button class="btn btn-primary" type="submit">Sign in</button>
                 </div>
 
-            </div>
+            </form>
         </div>
     </div>
     <div class="bg-lightBlue" style="font-size: 1rem !important;">
