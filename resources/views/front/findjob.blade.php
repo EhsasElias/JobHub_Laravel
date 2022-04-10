@@ -1,81 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/styleEN.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
-    <title>Document</title>
-</head>
-<body class="fs-6">
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="nav">
-            <div class="container-fluid d-flex align-items-center w-100">
-                <a class="navbar-brand " href="/">
-                    <h4 class="fw-bold"><span class="text-primary">j</span>obhub</h4>
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                    <ul class="navbar-nav  mb-2 mb-lg-0 m-auto w-50 p-1  justify-content-between">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Find Jobs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="">Companies</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle" href="" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Pages
-                            </a>
-                            <ul class="dropdown-menu p-4 rounded-4 bg-white" aria-labelledby="navbarDropdown">
-                                <li class=""><a class="dropdown-item "
-                                        href="/">profile</a></li>
-
-                                <li class=""><a class="dropdown-item " href="/aboutUS">About Us</a></li>
-                                <li class=""><a class="dropdown-item" href="/contactUS">Contact Us</a></li>
-                                <li class=""><a class="dropdown-item" href="/signIN">Sign In</a></li>
-                                <li class=""><a class="dropdown-item" href="/signUP">Sign Up</a></li>
-                                <li class=""><a class="dropdown-item" href="#">FAQs</a></li>
-                            </ul>
-                        </li>
-
-                    </ul>
-                    <form class="d-flex signinSignup align-items-center nav-item">
-                        <a href="/postjob" class="btn text-light bg-primary m-2 rounded-pill" type="submit">Post a Job</a>
-                        <div class="dropdown ">
-                            <a href="" id="dropdownMenuLink" class="btn p-1">
-                                <img src="{{ URL::asset('images/b.jpg') }}" class=" rounded-pill" width="40" height="40" alt="">
-                            </a>
-                            <a class="btn dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                ehsaselias
-                            </a>
-
-                            <ul class="dropdown-menu p-4 rounded-4 " aria-labelledby="dropdownMenuLink">
-                                <li><a class="dropdown-item" href="/profileDashboard">Dashboard</a>
-                                </li>
-                                <li><a class="dropdown-item" href="/profileEdit">Edit Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </div>
-                        
-                    </form>
-                </div>
-            </div>
-        </nav>
-    </header>
+    @extends('layouts.Header')
+    @section('header')
+    @endsection
 
 
+<body>
+    @extends('layouts.Nav')
+    @section('nav')
+    @endsection
     <section class=" bg-lightBlue pt-5 ">
 
         <section class=" mt-5 ">
@@ -117,6 +50,8 @@
         </section>
 
     </section>
+</body>
+   
 
 
 
@@ -320,11 +255,13 @@
         </div>
 
     </footer>
-    <script src="{{ URL::asset('js/js.js') }}"></script>
-    <script src="{{ URL::asset('js/bootstrap.bundle.min.js') }}"></script>
+    
+    @extends('layouts.Footer')
+    @section('footer')
+    @endsection
     <script src="{{ URL::asset('js/app.js') }}"></script>
 
 
 
-</body>
+
 </html>

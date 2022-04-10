@@ -30,7 +30,7 @@
                 <a href="/profileDashboard" type="button"
                   class="btn d-flex align-items-center mt-3 bg-darkBlue text-light rounded-pill py-2 pe-5"><i
                     class="fa fa-home p-2"></i>Dashboard</a>
-                <a href="/profileEdit" type="button" class="btn d-flex align-items-center mt-3 rounded-pill py-2 pe-5"><i
+                <a href="/UserprofileEdit" type="button" class="btn d-flex align-items-center mt-3 rounded-pill py-2 pe-5"><i
                     class="fa fa-pencil p-2"></i>Edit Profile</a>
                 <a href="/skills" type="button"
                   class="btn d-flex align-items-center mt-3 rounded-pill py-2 pe-5"><i
@@ -71,7 +71,7 @@
 
     </nav>
     <section class="w-75 me-auto">
-      <form class=" signin  d-flex justify-content-end m-1 align-items-start">
+      <form method="POST" action="login" class=" signin  d-flex justify-content-end m-1 align-items-start">
 
         <div class="dropdown d-flex align-items-center m-lg-5">
           <a href="" id="dropdownMenuLink" class="btn p-1">
@@ -84,8 +84,8 @@
 
           <ul class="dropdown-menu p-4 rounded-4" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="/profileDashboard">Dashboard</a></li>
-            <li><a class="dropdown-item" href="/profileEdit">Edit Profile</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <li><a class="dropdown-item" href="/UserprofileEdit">Edit Profile</a></li>
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
           </ul>
         </div>
         </li>

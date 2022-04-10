@@ -32,7 +32,7 @@
                                 <a href="/AdminDashboard" type="button"
                                     class="btn d-flex align-items-center mt-3 bg-darkBlue text-light  rounded-pill py-2 pe-5"><i
                                         class="fa fa-home p-2"></i>Dashboard</a>
-                                <a href="/profileEditad" type="button"
+                                <a href="/profileEditadmin" type="button"
                                     class="btn d-flex align-items-center mt-3  rounded-pill py-2 pe-5"><i
                                         class="fa fa-home p-2"></i>Edit Profile</a>
                                 <a href="/postjob" type="button"
@@ -88,9 +88,9 @@
                     </a>
 
                     <ul class="dropdown-menu p-4 rounded-4" aria-labelledby="dropdownMenuLink">
-                        <li><a class="dropdown-item" href="/profileDashboard">Dashboard</a></li>
-                        <li><a class="dropdown-item" href="/profileEdit">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="/AdminDashboard">Dashboard</a></li>
+                        <li><a class="dropdown-item" href="/AdminprofileEdit">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
                     </ul>
                 </div>
                 </li>

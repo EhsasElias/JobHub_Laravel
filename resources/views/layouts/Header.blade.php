@@ -9,3 +9,5 @@
     <link rel="stylesheet" href="{{ URL::asset('css/font-awesome.css') }}">
     <title>DashBoard</title>
 </head>
+
+<body>

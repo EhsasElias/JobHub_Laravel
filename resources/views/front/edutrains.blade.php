@@ -31,7 +31,7 @@
                                 <a href="/profileDashboard" type="button"
                                     class="btn d-flex align-items-center mt-3  rounded-pill py-2 pe-5"><i
                                         class="fa fa-home p-2"></i>Dashboard</a>
-                                <a href="/profileEdit" type="button"
+                                <a href="/UserprofileEdit" type="button"
                                     class="btn d-flex align-items-center mt-3 rounded-pill py-2 pe-5"><i
                                         class="fa fa-pencil p-2"></i>Edit
                                     Profile</a>
@@ -93,8 +93,8 @@
 
                     <ul class="dropdown-menu p-4 rounded-4" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="/profileDashboard">Dashboard</a></li>
-                        <li><a class="dropdown-item" href="/profileEdit">Edit Profile</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                        <li><a class="dropdown-item" href="/UserprofileEdit">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
                     </ul>
                 </div>
                 </li>

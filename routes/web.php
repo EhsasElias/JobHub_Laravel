@@ -6,10 +6,13 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\admin\Insertajob;
 use App\Http\Controllers\admin\JobController;
+use App\Http\Controllers\admin\UserDashboard;
 use App\Http\Controllers\front\jobView;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //customer dashboard
-Route::get('/',[jobView::class ,'index']);
+Route::get('/',[jobView::class ,'index'])->name('home');
 Route::get('/aboutUS',[jobView::class ,'aboutUS']);
 Route::get('/contactUS',[jobView::class ,'contactUS']);
 Route::get('/edutrains',[jobView::class ,'edutrains']);
@@ -43,9 +46,27 @@ Route::get('/skills',[jobView::class ,'skills']);
 
 
 //admin dashboard
-Route::get('/AdminDashboard',[AdminDashboardController::class,'showdashboard'])->name('AdminDashboard');
-Route::get('/postjob',[JobController::class , 'dashboard'])->name('postjob');
-Route::post('/postjob',[JobController::class , 'storejob']);
-Route::get('/profileEditad',[AuthController::class , 'adminEdit'])->name('profileEditad');
-Route::post('/updateuserinfo',[AuthController::class , 'saveuser'])->name('updateuserinfo');
 
+
+	
+
+        Route::get('/profileEditadmin',[AuthController::class , 'adminEdit'])->name('profileEditadmin');
+		
+        Route::get('/AdminDashboard',[AdminDashboardController::class,'showAdminDashboard'])->name('AdminDashboard');
+        
+        
+        Route::get('/logout',[AuthController::class,'logout'])->name('logout');
+        
+ 
+    Route::get('/save_user',[UserDashboard::class,'showuserdashboard'])->name('saveuser');
+Route::post('/updateuserinfo',[AuthController::class , 'saveuser'])->name('updateuserinfo');
+Route::post('/save_user',[AuthController::class,'register'])->name('save_user');
+
+
+    Route::post('/postjob',[JobController::class , 'storejob']);
+    
+     
+         Route::get('/postjob',[JobController::class , 'dashboard'])->name('postjob');
+        
+
+Route::get('/login',[AuthController::class , 'login'])->name('login');

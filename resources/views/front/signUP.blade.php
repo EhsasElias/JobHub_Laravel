@@ -1,132 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    @extends('layouts.Header')
-    @section('header')
-    @endsection
+@extends('layouts.Header')
+@section('header')
+@endsection
 
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="nav">
-        <div class="container-fluid d-flex align-items-center w-100">
-            <a class="navbar-brand " href="../index.html">
-                <h4 class="fw-bold"><span class="text-primary">j</span>obhub</h4>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                <ul class="navbar-nav  mb-2 mb-lg-0 m-auto w-50 p-1  justify-content-between">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="../templates/findJob.html">Find Jobs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">Companies</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Pages
-                        </a>
-                        <ul class="dropdown-menu p-4 rounded-4" aria-labelledby="navbarDropdown">
-                            <li class=""><a class="dropdown-item "
-                                    href="../templates/profile/index.html">profile</a></li>
 
-                            <li class=""><a class="dropdown-item " href="./aboutUS.html">About Us</a></li>
-                            <li class=""><a class="dropdown-item" href="./contactUS.html">Contact Us</a></li>
-                            <li class=""><a class="dropdown-item" href="./signIN.html">Sign In</a></li>
-                            <li class=""><a class="dropdown-item" href="./signUP.html">Sign Up</a></li>
-                            <li class=""><a class="dropdown-item" href="#">FAQs</a></li>
-                        </ul>
-                    </li>
-
-                </ul>
-                <form class="d-flex signinSignup align-items-center">
-                    <button class="btn text-light bg-primary m-2 rounded-pill" type="submit">Post a Job</button>
-                    <div class="dropdown">
-                        <a href="/proflieDashboard" id="dropdownMenuLink" class="btn p-1">
-                            <img src="{{ URL::asset('images/b.jpg') }}" class=" rounded-pill" width="40" height="40" alt="">
-                        </a>
-                        <a class="btn dropdown-toggle p-0" href="#" role="button" id="dropdownMenuLink"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            ehsaselias
-                        </a>
-
-                        <ul class="dropdown-menu p-4 rounded-4" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="/proflieDashboard">Dashboard</a>
-                            </li>
-                            <li><a class="dropdown-item" href="/proflieEdit">Edit Profile</a></li>
-                            <li><a class="dropdown-item" href="/">Logout</a></li>
-                        </ul>
-                    </div>
-                    </li>
-                </form>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body>
+    @extends('layouts.Nav')
+    @section('nav')
+    @endsection
     <div tabindex="-1" class="py-5 my-5">
-        <div class="modal-dialog ">
+        <form method="POST" action="{{ route('save_user') }}" class="modal-dialog"  enctype="multipart/form-data">
+            @if (session('error'))
+                        <p class="alert alert-danger">{{ session('error') }}</p>
+                    @endif
+                    @if (session('success'))
+                        <p class="alert alert-info">{{ session('success') }}</p>
+                    @endif
             <div class="modal-content  ">
                 <div class="modal-header">
                     <h5 class="modal-title">Sign up</h5>
                     <a href="/" role="button" class="btn-close"></a>
                 </div>
-                <form method="POST" action="/profileEdit" class="modal-body">
+                <div class="modal-body">
+                    @csrf
+                    
                     <div class="modal-body">
-                        <div class="input-group mb-3">
-
-                            <input type="text" class="form-control" name="name" placeholder="Username" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                        <div class="input-group  mb-3 flex-wrap">
+                            @error('name')
+                                <p class="alert alert-danger">{{ $message }}</p><br>
+                            @enderror
+                            <input type="text" class="form-control d-block" name="name" placeholder="Username"
+                               >
                         </div>
                         <div class="input-group mb-3">
 
-                            <input type="email" class="form-control" name="email" placeholder="Userpass" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                            @error('email')
+                                <p class="alert alert-danger">{{ $message }}</p><br>
+                            @enderror
+                            <input type="email" class="form-control" name="email" placeholder="Email"
+                                >
                         </div>
                         <div class="input-group mb-3">
-
-                            <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password"
-                                aria-describedby="basic-addon1">
+                            @error('password')
+                                <p class="alert alert-danger">{{ $message }}</p><br>
+                            @enderror
+                            <input type="password" name="password" class="form-control" placeholder="Password"
+                                >
                         </div>
 
 
                         <div class="input-group mb-3">
 
-                            <input type="password" class="form-control" placeholder="Repeate Password" aria-label="Password"
-                                aria-describedby="basic-addon1">
+                            <input type="password" class="form-control" placeholder="Repeate Password"
+                              >
                         </div>
                         <div class="input-group mb-3">
-
-                            <input type="file" class="form-control" name="image" placeholder="Userimg" aria-label="Username"
-                                aria-describedby="basic-addon1">
+                            @error('image')
+                                <p class="alert alert-danger">{{ $message }}</p><br>
+                            @enderror
+                            <input type="file" class="form-control" name="image" placeholder="Userimg"
+                             >
                         </div>
+                        <ul class="list-group">
+                            Choose Role
+                            <li class="list-group-item">
+                              <input class="form-check-input me-1" type="checkbox" name="super" value="super" aria-label="...">
+                              Super Admin
+                            </li>
+                            <li class="list-group-item">
+                              <input class="form-check-input me-1" type="checkbox" name="admin" value="admin" aria-label="...">
+                              Admin
+                            </li>
+                            <li class="list-group-item">
+                              <input class="form-check-input me-1" type="checkbox" name="client" value="client" aria-label="...">
+                              Client
+                            </li>
+                            
+                            
+                          </ul>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" value="0" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Active
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="1" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Not Active
+                            </label>
+                          </div>
                     </div>
-                    <a href="../templates/signIN.html">Sign in</a>
-                </form>
+                    <a href="/signIN">Sign in</a>
+                </div>
                 <div class="modal-footer justify-content-between">
-                    <a class="btn btn-primary" href="../index.html">cancel</a>
-    
-                    <a class="btn btn-primary" href="../templates/findJob.html">Create Account</a>
+                    <a class="btn btn-primary" href="/">cancel</a>
+
+                    <button class="btn btn-primary" type="submit">Create Account</button>
                 </div>
 
             </div>
 
-            
-
-        </div>
+        </form>
     </div>
     </div>
     <div class="bg-lightBlue" style="font-size: 1rem !important;">
         <div class="w-75 p-5 d-flex flex-wrap m-auto justify-content-between">
             <div class="my-2">
-                <a class="text-dark text-decoration-none d-block" href="../index.html">
+                <a class="text-dark text-decoration-none d-block" href="/">
                     <h4 class="fw-bold m-0"><span class="text-primary">j</span>obhub</h4>
                 </a>
                 <div>
@@ -188,8 +172,6 @@
     @section('footer')
     @endsection
 
-    <script src="{{ URL::asset('js/js.js') }}"></script>
-    <script src="{{ URL::asset('js/app.js') }}"></script>
 </body>
 
 </html>
