@@ -9,6 +9,6 @@ class companies extends Model
 {
     use HasFactory;
     public function job(){
-        return $this->hasOne(jobs::class,'com_id');
+        return $this->hasMany(jobs::class,'com_id');
     }
 }

@@ -14,7 +14,7 @@ class AuthController extends Controller
 
     public function adminEdit(){
         // return view('admin.profileEdit');
-        $user=User::with('profile')->where('id',2)->get()->first();
+        $user=User::with('profile')->where('id',1)->get()->first();
         return response($user);
     }
   
